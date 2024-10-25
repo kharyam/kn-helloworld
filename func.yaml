@@ -1,0 +1,18 @@
+specVersion: 0.36.0
+name: helloworld
+runtime: quarkus
+registry: registry-quay-quay.apps.ocp.khary.net/kmendez/test
+created: 2024-10-24T07:48:54.591783329-04:00
+build:
+  builder: s2i
+  buildEnvs:
+  - name: BP_NATIVE_IMAGE
+    value: "false"
+  - name: BP_JVM_VERSION
+    value: "21"
+  - name: MAVEN_S2I_ARTIFACT_DIRS
+    value: target/quarkus-app
+  - name: S2I_SOURCE_DEPLOYMENTS_FILTER
+    value: lib quarkus-run.jar app quarkus
+#  - name: MAVEN_SETTINGS_PATH
+#    value: /path/to/custom/settings.xml
